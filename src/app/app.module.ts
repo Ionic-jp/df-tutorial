@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
+import { WordpressProvider } from '../providers/wordpress/wordpress';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WordpressProvider
   ]
 })
 export class AppModule {}

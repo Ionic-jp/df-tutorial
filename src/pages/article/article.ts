@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { WordpressProvider } from '../../providers/wordpress/wordpress';
 
 /**
  * Generated class for the ArticlePage page.
@@ -16,6 +16,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 @Component({
   selector: 'page-article',
   templateUrl: 'article.html',
+  providers: [ WordpressProvider ]
 })
 export class ArticlePage {
     post:{
@@ -33,8 +34,8 @@ export class ArticlePage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public http: HttpClient,
-        public loadingCtrl: LoadingController
+        public loadingCtrl: LoadingController,
+        public wp: WordpressProvider
     ) {
     }
 
@@ -43,12 +44,7 @@ export class ArticlePage {
         loading.present();
 
         const id = this.navParams.get('id');
-        this.http.get<{
-            ID   : number,
-            title : string,
-            content : string,
-            date  : string
-        }>('https://public-api.wordpress.com/rest/v1.1/sites/ionicjp.wordpress.com/posts/' + id)
+        this.wp.get_article(id)
             .subscribe(data => {
                 this.post = data;
                 loading.dismiss();
