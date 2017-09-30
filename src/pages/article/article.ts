@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { WordpressProvider } from '../../providers/wordpress/wordpress';
+import { Post } from '../../interfaces/wordpress';
 
 /**
  * Generated class for the ArticlePage page.
@@ -19,12 +20,7 @@ import { WordpressProvider } from '../../providers/wordpress/wordpress';
   providers: [ WordpressProvider ]
 })
 export class ArticlePage {
-    post:{
-        ID   : number,
-        title : string,
-        content : string,
-        date  : string
-    } = {
+    post: Post = {
         ID   : null,
         title : null,
         content : null,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController, Platform } from 'ionic-angular';
 import { WordpressProvider } from '../../providers/wordpress/wordpress';
+import { Post } from '../../interfaces/wordpress';
 
 @IonicPage()
 @Component({
@@ -10,12 +11,7 @@ import { WordpressProvider } from '../../providers/wordpress/wordpress';
 })
 export class HomePage {
 
-  posts:{
-      ID      : number,
-      title   : string,
-      content : string,
-      date    : string,
-  }[] = [];
+  posts: Post[] = [];
   
   constructor(
       public navCtrl: NavController,
