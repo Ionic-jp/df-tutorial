@@ -9,8 +9,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let p of posts" [navPush]="'ArticlePage'" [navParams]="{ id : p.ID }">
-      <h2>{{p.title}}</h2>
-      <p>{{p.date}}</p>
+      <wp-head title="{{p.title}}" date="{{p.date}}"></wp-head>
     </ion-item>
   </ion-list>
 </ion-content>

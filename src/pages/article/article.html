@@ -15,8 +15,7 @@
 
 <ion-content padding>
   <ion-item>
-    <h2>{{post.title}}</h2>
-    <p>{{post.date}}</p>
+    <wp-head title="{{post.title}}" date="{{post.date}}"></wp-head>
   </ion-item>
   <div padding [innerHTML]="post.content"></div>
 </ion-content>
